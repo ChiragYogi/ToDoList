@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">ToDoListApp</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="add_some_todo_your_todo_list_will_display_here">Add Some ToDo .Your Todo List Will Display here</string>
+    <string name="title">Add Your Todo Here :</string>
+    <string name="add_reminder">Add Reminder</string>
+    <string name="todopriority">Choose priority :</string>
+    <string name="high">High</string>
+    <string name="medium">Medium</string>
+    <string name="low">Low</string>
+    <string name="fabforsavingtodo">fabForSavingToDo</string>
+    <string name="select_date_for_your_todo">Select Date For Your ToDo</string>
+    <string name="set_time_for_your_todo">Set Time For Your ToDo</string>
+</resources>
