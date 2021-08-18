@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/toDoDisplatFragmen"
-        android:name="com.example.todolistapp.ToDoDisplatFragmen"
+        android:name="com.example.todolistapp.ui.ToDoDisplatFragmen"
         android:label="fragment_to_do_displat"
         tools:layout="@layout/fragment_to_do_displat" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/itemToDoFragment"
-        android:name="com.example.todolistapp.ItemToDoFragment"
+        android:name="com.example.todolistapp.ui.ItemToDoFragment"
         android:label="fragment_item_to_do"
         tools:layout="@layout/fragment_item_to_do" />
 </navigation>
