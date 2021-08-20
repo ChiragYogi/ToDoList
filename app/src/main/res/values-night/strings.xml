@@ -10,4 +10,10 @@
     <string name="fabforsavingtodo">fabForSavingToDo</string>
     <string name="select_date_for_your_todo">Select Date For Your ToDo</string>
     <string name="set_time_for_your_todo">Set Time For Your ToDo</string>
+    <string name="save_todo">Save Todo</string>
+    <string name="add_todo">Add ToDo</string>
+    <string name="error_msg_for_title_tinl">Plese Addd Some Title</string>
+    <string name="date_error">Please Select Date</string>
+    <string name="time_error">Please select Time</string>
+    <string name="title_for_todo">Title</string>
 </resources>

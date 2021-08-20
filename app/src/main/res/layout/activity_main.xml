@@ -13,23 +13,13 @@
         android:layout_height="0dp"
         android:name="androidx.navigation.fragment.NavHostFragment"
         app:navGraph="@navigation/nav_graph"
-        app:defultNavHost="true"
+        app:defaultNavHost="true"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/addTodoFab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
-        android:layout_marginEnd="24dp"
-        app:elevation="10dp"
-        app:srcCompat="@drawable/ic_baseline_create_24"
-        app:backgroundTint="@color/design_default_color_primary"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+
 
 
   </androidx.constraintlayout.widget.ConstraintLayout>

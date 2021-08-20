@@ -40,4 +40,16 @@
         tools:text="@string/add_some_todo_your_todo_list_will_display_here"
         android:text="@string/add_some_todo_your_todo_list_will_display_here"/>
 
+  <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+      android:id="@+id/newTodo"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginBottom="32dp"
+      android:layout_marginEnd="32dp"
+      android:text="@string/add_todo"
+      app:backgroundTint="?attr/colorPrimary"
+      app:icon="@drawable/ic_baseline_create_24"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,19 +7,19 @@ import com.example.todolistapp.data.ToDoModal
 @Dao
 interface ToDoDao {
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insertTodo(todoModel:ToDoModal)
-
     @Query("SELECT * FROM to_do_table")
-    suspend fun displayAllTodo():LiveData<List<ToDoModal>>
+    fun displayAllTodo(): LiveData<List<ToDoModal>>
 
-   @Update
-   suspend fun updateUser(todoModel: ToDoModal)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun insertTodo(todoModel: ToDoModal)
 
-    @Query("DELETE FROM to_do_table")
-    suspend fun deleteTodo()
+    @Update
+    suspend fun updateTodo(todoModel: ToDoModal)
 
-    @Query("Select * From to_do_table where addReminder=1")
-    suspend fun setUpReminder():LiveData<List<ToDoModal>>
+    @Delete
+    suspend fun deleteTodo(todoModel: ToDoModal)
+
+    /*@Query("Select * From to_do_table where addReminder = 1")
+    suspend fun setUpReminder(todoModel: ToDoModal)*/
 
 }
