@@ -2,8 +2,8 @@
 <resources>
     <string name="add_some_todo_your_todo_list_will_display_here">Add Some ToDo .Your Todo List Will Display here</string>
     <string name="title">Add Your Todo Here :</string>
-    <string name="add_reminder">Add Reminder</string>
-    <string name="todopriority">Choose priority :</string>
+    <string name="add_reminder">Do You Want Reminder For this ToDo ?</string>
+    <string name="todopriority">Choose priority of Your ToDo</string>
     <string name="high">High</string>
     <string name="medium">Medium</string>
     <string name="low">Low</string>
@@ -16,4 +16,5 @@
     <string name="date_error">Please Select Date</string>
     <string name="time_error">Please select Time</string>
     <string name="title_for_todo">Title</string>
+    <string name="prefix_title">Title</string>
 </resources>

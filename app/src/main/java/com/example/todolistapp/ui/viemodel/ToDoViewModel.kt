@@ -40,6 +40,12 @@ class ToDoViewModel(application: Application):AndroidViewModel(application) {
             repository.updateTodo(toDoModal)
         }
     }
+
+    fun onToDoChecked(toDoModal: ToDoModal,isChecked: Boolean){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.updateTodo(toDoModal.copy(isCompletedForToDo = isChecked))
+        }
+    }
 /*
     fun reminderTodo(toDoModal: ToDoModal){
         viewModelScope.launch(Dispatchers.IO) {

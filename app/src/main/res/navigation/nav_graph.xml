@@ -13,14 +13,17 @@
         <action
             android:id="@+id/action_toDoDisplatFragmen_to_itemToDoFragment2"
             app:destination="@id/itemToDoFragment" />
+
     </fragment>
     <fragment
         android:id="@+id/itemToDoFragment"
-        android:name="com.example.todolistapp.ui.ItemToDoFragment"
+        android:name="com.example.todolistapp.ui.AddToDoFragment"
         android:label="Add ToDo"
         tools:layout="@layout/fragment_item_to_do" >
-        <action
-            android:id="@+id/action_itemToDoFragment_to_toDoDisplatFragmen"
-            app:destination="@id/toDoDisplatFragmen" />
+        <argument
+            android:name="todoUpdate"
+            app:argType="com.example.todolistapp.data.ToDoModal"
+            app:nullable="true"
+            android:defaultValue="@null" />
     </fragment>
 </navigation>

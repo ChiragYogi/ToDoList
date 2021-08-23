@@ -23,9 +23,13 @@ class ToDoRepository(private val todoDao:ToDoDao) {
         todoDao.updateTodo(toDoModal)
     }
 
-   /* suspend fun getReminderTodo(toDoModal: ToDoModal) {
-        todoDao.setUpReminder(toDoModal)
-    }*/
+    suspend fun getReminderTodo() {
+        todoDao.setUpReminder()
+    }
+
+    suspend fun deleteCompletedTodo() {
+        todoDao.deleteUpdatedToDo()
+    }
 
 
 

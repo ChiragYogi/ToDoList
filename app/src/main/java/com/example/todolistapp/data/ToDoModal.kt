@@ -1,11 +1,14 @@
 package com.example.todolistapp.data
 
-import android.widget.RadioButton
+
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.io.Serializable
+
 
 @Entity(tableName = "to_do_table")
+
 data class ToDoModal(
 
     @PrimaryKey(autoGenerate = true)
@@ -16,9 +19,10 @@ data class ToDoModal(
     val date: String,
     @ColumnInfo(name = "time")
     val time: String,
+   @ColumnInfo(name = "priority")
+    val priority: String,
     @ColumnInfo(name = "addReminder")
-    val addReminder:Boolean = false,
-    @ColumnInfo(name = "priority")
-    val priority: String?
-
-)
+    var addReminderForToDo: Boolean = false,
+    @ColumnInfo(name = "isCompleted")
+    var isCompletedForToDo: Boolean = false
+): Serializable

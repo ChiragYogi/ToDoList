@@ -4,160 +4,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.ItemToDoFragment">
+    tools:context=".ui.AddToDoFragment">
+
+    <include
+        android:id="@+id/addToDoLayout"
+        layout="@layout/add_todo_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/saveToDoFab"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:contentDescription="@string/fabforsavingtodo"
         android:text="@string/save_todo"
-        app:layout_constraintEnd_toEndOf="@id/guidelineTwo"
-        app:layout_constraintStart_toStartOf="@+id/guidelineOne"
-        app:layout_constraintTop_toBottomOf="@+id/todoRadioGroup"
         app:icon="@drawable/ic_baseline_check_24"
-        app:iconGravity="textStart"/>
-       <!-- style="@style/Widget.MaterialComponents.Button.TextButton.Icon"-->
+        app:iconGravity="textStart"
+        android:layout_margin="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addToDoLayout" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/txtInputLayoutToDo"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        app:boxStrokeColor="@color/design_default_color_primary"
-        android:hint="@string/title"
-        app:layout_constraintEnd_toEndOf="@id/guidelineTwo"
-        app:layout_constraintStart_toStartOf="@id/guidelineOne"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edtInputLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="text"/>
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/dateTxtInputLayout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:boxStrokeColor="@color/design_default_color_primary"
-        android:layout_marginTop="8dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:hint="@string/select_date_for_your_todo"
-        app:endIconDrawable="@drawable/ic_baseline_date_range_24"
-        app:endIconMode="custom"
-        app:endIconTint="#0A2FE5"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        app:layout_constraintTop_toBottomOf="@id/txtInputLayoutToDo"
-        app:layout_constraintStart_toStartOf="@id/guidelineOne"
-        app:layout_constraintEnd_toEndOf="@id/guidelineTwo">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/dateEdt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="text"/>
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/timeTimeInputLayout"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:hint="@string/set_time_for_your_todo"
-        android:visibility="visible"
-        app:boxStrokeColor="@color/design_default_color_primary"
-        app:layout_constraintEnd_toEndOf="@id/guidelineTwo"
-        app:layout_constraintStart_toStartOf="@id/guidelineOne"
-        app:layout_constraintTop_toBottomOf="@id/dateTxtInputLayout">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/timeEdt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:drawableEnd="@drawable/ic_baseline_access_time_filled_24"
-            android:inputType="text" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-
-    <CheckBox
-        android:id="@+id/todoCheck"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="@string/add_reminder"
-        app:layout_constraintEnd_toEndOf="@+id/guidelineTwo"
-        app:layout_constraintStart_toStartOf="@+id/guidelineOne"
-        app:layout_constraintTop_toBottomOf="@+id/timeTimeInputLayout" />
-
-    <TextView
-        android:id="@+id/radioTxt"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="@string/todopriority"
-        android:textColor="@color/title_text_color"
-        android:textSize="17sp"
-        android:textStyle="bold"
-        android:layout_marginStart="5dp"
-        app:layout_constraintEnd_toEndOf="@id/guidelineTwo"
-        app:layout_constraintStart_toStartOf="@id/guidelineOne"
-        app:layout_constraintTop_toBottomOf="@id/todoCheck" />
-    <RadioGroup
-        android:id="@+id/todoRadioGroup"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="8dp"
-        android:checkedButton="@id/priorityLow"
-        app:layout_constraintEnd_toEndOf="@id/guidelineTwo"
-        app:layout_constraintStart_toStartOf="@id/guidelineOne"
-        app:layout_constraintTop_toBottomOf="@+id/radioTxt">
-
-        <RadioButton
-            android:id="@+id/priorityHigh"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="5dp"
-            android:text="@string/high" />
-
-        <RadioButton
-            android:id="@+id/priorityMedium"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/medium"
-            android:layout_marginEnd="5dp"/>
-
-        <RadioButton
-            android:id="@+id/priorityLow"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="5dp"
-            android:text="@string/low" />
-    </RadioGroup>
-
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guidelineOne"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="10dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guidelineTwo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_end="10dp"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

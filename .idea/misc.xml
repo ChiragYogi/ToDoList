@@ -5,8 +5,11 @@
       <map>
         <entry key="..\:/Users/chirag/AndroidStudioProjects/ToDoListApp/app/src/main/res/drawable/ic_baseline_date_range_24.xml" value="0.20185185185185187" />
         <entry key="..\:/Users/chirag/AndroidStudioProjects/ToDoListApp/app/src/main/res/layout/activity_main.xml" value="0.14" />
-        <entry key="..\:/Users/chirag/AndroidStudioProjects/ToDoListApp/app/src/main/res/layout/fragment_item_to_do.xml" value="0.25" />
+        <entry key="..\:/Users/chirag/AndroidStudioProjects/ToDoListApp/app/src/main/res/layout/add_todo_layout.xml" value="0.22" />
+        <entry key="..\:/Users/chirag/AndroidStudioProjects/ToDoListApp/app/src/main/res/layout/fragment_item_to_do.xml" value="0.16" />
         <entry key="..\:/Users/chirag/AndroidStudioProjects/ToDoListApp/app/src/main/res/layout/fragment_to_do_displat.xml" value="0.14" />
+        <entry key="..\:/Users/chirag/AndroidStudioProjects/ToDoListApp/app/src/main/res/layout/fragment_update.xml" value="0.1766304347826087" />
+        <entry key="..\:/Users/chirag/AndroidStudioProjects/ToDoListApp/app/src/main/res/layout/item_auto_complete_dropdown.xml" value="0.1671195652173913" />
         <entry key="..\:/Users/chirag/AndroidStudioProjects/ToDoListApp/app/src/main/res/layout/tod_rv_item.xml" value="0.25" />
       </map>
     </option>

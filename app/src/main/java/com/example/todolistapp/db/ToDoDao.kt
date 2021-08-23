@@ -19,7 +19,9 @@ interface ToDoDao {
     @Delete
     suspend fun deleteTodo(todoModel: ToDoModal)
 
-    /*@Query("Select * From to_do_table where addReminder = 1")
-    suspend fun setUpReminder(todoModel: ToDoModal)*/
+    @Query("Select * From to_do_table where addReminder= 1")
+     fun setUpReminder(): LiveData<List<ToDoModal>>
 
+    @Query("DELETE FROM to_do_table WHERE  isCompleted= 1")
+     suspend fun deleteUpdatedToDo()
 }

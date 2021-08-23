@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <style name="primaryEditText" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="hintAnimationEnabled">true</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/title_text_color</item>
+        <item name="backgroundTint">@color/purple_700</item>
+        <item name="boxStrokeColor">@color/purple_700</item>
+        <item name="android:layout_margin">8dp</item>
+   </style>
+
+    <style name="priorityDropDown" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu">
+        <item name="hintAnimationEnabled">true</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/title_text_color</item>
+        <item name="backgroundTint">@color/purple_700</item>
+        <item name="boxStrokeColor">@color/purple_700</item>
+        <item name="android:layout_margin">8dp</item>
+    </style>
+
+    <style name="switchReminder">
+        <item name="android:text">@string/add_reminder</item>
+        <item name="android:textColor">@color/title_text_color</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_margin">8dp</item>
+    </style>
+
+</resources>

@@ -4,6 +4,8 @@ import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.content.Context
 import android.widget.DatePicker
+import android.widget.RadioButton
+import android.widget.RadioGroup
 import com.google.android.material.textfield.TextInputEditText
 import java.text.SimpleDateFormat
 import java.util.*
@@ -17,7 +19,7 @@ fun TextInputEditText.transformDatePicker(
 
     isFocusableInTouchMode = false
     isClickable = true
-    isFocusable = false
+     isFocusable = false
 
     val myCalender = Calendar.getInstance()
 
@@ -70,3 +72,4 @@ fun TextInputEditText.transformTimePicker(
        ).show()
    }
 }
+
