@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
 import android.widget.ArrayAdapter
+import android.widget.AutoCompleteTextView
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -44,7 +45,7 @@ class AddToDoFragment :Fragment(R.layout.fragment_item_to_do) {
 
         binding.addToDoLayout.apply {
 
-            etPrioritySpinner.setAdapter(priorityAdepter)
+          etPrioritySpinner.setAdapter(priorityAdepter)
             dateEdt.transformDatePicker(requireContext(),"dd/MM/yyyy",Date())
             timeEdt.transformTimePicker(requireContext(), "h:mm a" )
 

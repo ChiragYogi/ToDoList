@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center_horizontal|center_vertical"
     android:orientation="vertical">
-
 
 
     <com.google.android.material.textfield.TextInputLayout
@@ -20,9 +18,9 @@
             android:id="@+id/edtInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+
             android:inputType="text" />
     </com.google.android.material.textfield.TextInputLayout>
-
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/dateTxtInputLayout"
         style="@style/primaryEditText"
@@ -36,8 +34,8 @@
             android:id="@+id/dateEdt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:drawableEnd="@drawable/ic_baseline_date_range_24"
             android:drawablePadding="8dp"
-            android:drawableStart="@drawable/ic_baseline_date_range_24"
             android:inputType="text" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -54,23 +52,23 @@
             android:id="@+id/timeEdt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:drawableEnd="@drawable/ic_baseline_access_time_filled_24"
             android:drawablePadding="8dp"
-            android:drawableStart="@drawable/ic_baseline_access_time_filled_24"
             android:inputType="text" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/priorityTxtLayout"
-        style="@style/priorityDropDown"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/todopriority"
-        app:boxBackgroundColor="@color/cardview_light_background">
+        android:layout_margin="8dp"
+        android:hint="@string/todoPriority">
 
         <AutoCompleteTextView
             android:id="@+id/etPrioritySpinner"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:inputType="none"
             android:labelFor="@id/etPrioritySpinner" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -81,10 +79,9 @@
 
     <com.google.android.material.switchmaterial.SwitchMaterial
         android:id="@+id/reminderSwitch"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         style="@style/switchReminder"
-       />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 
 </LinearLayout>

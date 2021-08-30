@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/addToDoLayoutConstrainId"
     tools:context=".ui.AddToDoFragment">
 
     <include
@@ -11,6 +12,7 @@
         layout="@layout/add_todo_layout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -19,7 +21,7 @@
         android:id="@+id/saveToDoFab"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:contentDescription="@string/fabforsavingtodo"
+        android:contentDescription="@string/fabForSavingToDo"
         android:text="@string/save_todo"
         app:icon="@drawable/ic_baseline_check_24"
         app:iconGravity="textStart"

@@ -24,5 +24,5 @@ data class ToDoModal(
     @ColumnInfo(name = "addReminder")
     var addReminderForToDo: Boolean = false,
     @ColumnInfo(name = "isCompleted")
-    var isCompletedForToDo: Boolean = false
+    var todoCompleted: Boolean = false
 ): Serializable
