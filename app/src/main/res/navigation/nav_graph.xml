@@ -3,27 +3,42 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/toDoDisplatFragmen">
+    app:startDestination="@id/toDoDisplayFragment">
 
     <fragment
-        android:id="@+id/toDoDisplatFragmen"
-        android:name="com.example.todolistapp.ui.ToDoDisplatFragmen"
+        android:id="@+id/toDoDisplayFragment"
+        android:name="com.example.todolistapp.ui.ToDoDisplayFragment"
         android:label="ToDo APP"
-        tools:layout="@layout/fragment_to_do_displat" >
+        tools:layout="@layout/fragment_display_todo" >
         <action
-            android:id="@+id/action_toDoDisplatFragmen_to_itemToDoFragment2"
-            app:destination="@id/itemToDoFragment" />
+            android:id="@+id/action_toDoDisplayFragment_to_itemToDoFragment2"
+            app:destination="@id/addToDoFragment" />
+        <action
+            android:id="@+id/action_toDoDisplayFragment_to_updateFragment"
+            app:destination="@id/updateFragment" />
 
     </fragment>
     <fragment
-        android:id="@+id/itemToDoFragment"
+        android:id="@+id/addToDoFragment"
         android:name="com.example.todolistapp.ui.AddToDoFragment"
         android:label="Add ToDo"
-        tools:layout="@layout/fragment_item_to_do" >
-        <argument
-            android:name="todoUpdate"
-            app:argType="com.example.todolistapp.data.ToDoModal"
-            app:nullable="true"
-            android:defaultValue="@null" />
+        tools:layout="@layout/fragment_add_todo" >
+
     </fragment>
+    <fragment
+        android:id="@+id/updateFragment"
+        android:name="com.example.todolistapp.ui.UpdateFragment"
+        android:label="@string/update_todo"
+        tools:layout="@layout/fragment_update_todo" >
+
+        <argument
+            android:name="currentTodo"
+            app:argType="com.example.todolistapp.data.ToDoModal"
+            app:nullable="true" />
+    </fragment>
+    <dialog
+        android:id="@+id/deleteDialog"
+        android:name="com.example.todolistapp.ui.DeleteDialog"
+        android:label="DeleteDialog" />
+    <action android:id="@+id/action_global_deleteDialog2" app:destination="@id/deleteDialog" />
 </navigation>

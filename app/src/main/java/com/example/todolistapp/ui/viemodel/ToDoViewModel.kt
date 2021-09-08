@@ -1,23 +1,27 @@
 package com.example.todolistapp.ui.viemodel
 
 import android.app.Application
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.example.todolistapp.data.ToDoModal
-import com.example.todolistapp.db.ToDoDao
 import com.example.todolistapp.db.ToDoDataBase
 import com.example.todolistapp.repository.ToDoRepository
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
 
-class ToDoViewModel(application: Application):AndroidViewModel(application) {
+class ToDoViewModel(application: Application) :AndroidViewModel(application) {
 
-    private val todoDao = ToDoDataBase.getDataBase(application).todoDao()
+    private val scope = CoroutineScope(SupervisorJob())
+
+    private val todoDao = ToDoDataBase.getDataBase(application,scope).todoDao()
     private val repository: ToDoRepository = ToDoRepository(todoDao)
 
     val readAllToDo: LiveData<List<ToDoModal>> = repository.raedAllData
+    val sortByHighPriority: LiveData<List<ToDoModal>> = repository.sortByHighPriority
+    val sortByMediumPriority: LiveData<List<ToDoModal>> = repository.sortByMediumPriority
+    val sortByLowPriority: LiveData<List<ToDoModal>> = repository.sortByLowPriority
+
 
 
 
@@ -43,18 +47,19 @@ class ToDoViewModel(application: Application):AndroidViewModel(application) {
             repository.updateTodo(toDoModal.copy(todoCompleted = isChecked))
         }
    }
-/*
-    fun reminderTodo(toDoModal: ToDoModal){
-        viewModelScope.launch(Dispatchers.IO) {
-            repository.updateTodo(toDoModal)
-        }
-    }*/
 
-   /* fun reminderTodo(toDoModal: ToDoModal){
+    fun searchDatabase(query: String): LiveData<List<ToDoModal>>{
+        return  repository.searchDatabase(query)
+    }
+
+    fun deleteCompletedTodo(){
         viewModelScope.launch(Dispatchers.IO) {
-            repository.getReminderTodo(toDoModal)
+            repository.deleteCompletedTodo()
         }
-    }*/
+    }
+
+
+
 
 
 }

@@ -4,8 +4,10 @@ import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.content.Context
 import android.widget.DatePicker
-import android.widget.RadioButton
-import android.widget.RadioGroup
+
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.Observer
 import com.google.android.material.textfield.TextInputEditText
 import java.text.SimpleDateFormat
 import java.util.*
@@ -71,5 +73,16 @@ fun TextInputEditText.transformTimePicker(
            myCalender.get(Calendar.HOUR_OF_DAY), myCalender.get(Calendar.MINUTE), false
        ).show()
    }
+}
+
+fun <T> LiveData<T>.observeOnce(lifecycleOwner: LifecycleOwner,  observer: Observer<T>){
+    observe(lifecycleOwner, object : Observer<T>{
+        override fun onChanged(t: T) {
+        observer.onChanged(t)
+        removeObserver(this)
+        }
+
+    })
+
 }
 

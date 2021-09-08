@@ -1,28 +1,31 @@
 package com.example.todolistapp.data
 
 
+import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import java.io.Serializable
+import kotlinx.android.parcel.Parcelize
+
 
 
 @Entity(tableName = "to_do_table")
-
+@Parcelize
 data class ToDoModal(
 
-    @PrimaryKey(autoGenerate = true)
-    val id:Int,
     @ColumnInfo(name = "title")
     val title: String,
     @ColumnInfo(name = "date")
     val date: String,
     @ColumnInfo(name = "time")
     val time: String,
-   @ColumnInfo(name = "priority")
-    val priority: String,
+    @ColumnInfo(name = "priority")
+    val priority: Priority,
     @ColumnInfo(name = "addReminder")
     var addReminderForToDo: Boolean = false,
     @ColumnInfo(name = "isCompleted")
-    var todoCompleted: Boolean = false
-): Serializable
+    var todoCompleted: Boolean = false,
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name= "id")
+    val id:Int = 0
+): Parcelable

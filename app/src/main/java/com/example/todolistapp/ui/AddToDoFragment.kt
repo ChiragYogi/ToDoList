@@ -1,55 +1,61 @@
 package com.example.todolistapp.ui
 
-
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.View
 import android.widget.ArrayAdapter
-import android.widget.AutoCompleteTextView
 import android.widget.Toast
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
+
 import androidx.navigation.fragment.findNavController
 import com.example.todolistapp.R
+import com.example.todolistapp.alaram.SetAlaram
+
 import com.example.todolistapp.data.ToDoModal
-import com.example.todolistapp.databinding.FragmentItemToDoBinding
+import com.example.todolistapp.databinding.FragmentAddTodoBinding
+import com.example.todolistapp.reciver.AlarmReceiver
 import com.example.todolistapp.ui.viemodel.ToDoViewModel
-import com.example.todolistapp.utiles.Constant
 import com.example.todolistapp.utiles.transformDatePicker
 import com.example.todolistapp.utiles.transformTimePicker
+
+import com.example.todolistapp.utiles.utills.Companion.priority
+import com.example.todolistapp.utiles.utills.Companion.selectPriority
+import java.time.LocalDate
+import java.time.LocalDateTime
+
 import java.util.*
 
 
-class AddToDoFragment :Fragment(R.layout.fragment_item_to_do) {
+class AddToDoFragment : Fragment(R.layout.fragment_add_todo) {
 
-    private var _binding: FragmentItemToDoBinding? = null
+    private var _binding: FragmentAddTodoBinding? = null
     private val binding get() = _binding!!
-    private lateinit var viewModel: ToDoViewModel
+    private val viewModel: ToDoViewModel by viewModels()
+
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        _binding = FragmentItemToDoBinding.bind(view)
+        _binding = FragmentAddTodoBinding.bind(view)
 
-        viewModel = ViewModelProvider(this).get(ToDoViewModel::class.java)
-
-       initView()
+          initView()
 
     }
 
-    private fun initView(){
+    private fun initView() {
 
         val priorityAdepter = ArrayAdapter(
             requireContext(),
-            R.layout.item_auto_complete_dropdown,
-            Constant.priority)
+            R.layout.item_auto_complete_dropdown,priority)
 
         binding.addToDoLayout.apply {
 
-          etPrioritySpinner.setAdapter(priorityAdepter)
-            dateEdt.transformDatePicker(requireContext(),"dd/MM/yyyy",Date())
-            timeEdt.transformTimePicker(requireContext(), "h:mm a" )
+            etPrioritySpinner.setAdapter(priorityAdepter)
 
-
+            dateEdt.transformDatePicker(requireContext(), "dd/MM/yyyy", Date())
+            timeEdt.transformTimePicker(requireContext(), "h:mm a")
         }
 
         binding.saveToDoFab.setOnClickListener {
@@ -59,7 +65,7 @@ class AddToDoFragment :Fragment(R.layout.fragment_item_to_do) {
 
     private fun insertToDoIntoDatabase() {
 
-        val (_, title, date, time) = addToDo()
+        val (title, date, time) = addToDo()
 
 
         with(binding.addToDoLayout) {
@@ -73,10 +79,16 @@ class AddToDoFragment :Fragment(R.layout.fragment_item_to_do) {
                 time.isEmpty() -> {
                     this.timeEdt.error = getString(R.string.time_error)
                 }
+
+
                 else -> {
                     viewModel.addTodo(addToDo())
-                    Toast.makeText(
-                        requireContext(), "ToDo Added Successfully",Toast.LENGTH_LONG).show()
+                      Toast.makeText(
+                        requireContext(), "ToDo Added Successfully", Toast.LENGTH_LONG
+                    ).show()
+
+
+
                     //navigation back to previous Fragment
                     findNavController().navigateUp()
 
@@ -98,12 +110,20 @@ class AddToDoFragment :Fragment(R.layout.fragment_item_to_do) {
         val date = it.dateEdt.text.toString()
         val time = it.timeEdt.text.toString()
         val reminder = it.reminderSwitch.isChecked
-        val priority = it.etPrioritySpinner.text.toString()
+        val priorityTxt = it.etPrioritySpinner.text.toString()
+        val priority = selectPriority(priorityTxt)
 
-        return ToDoModal(0, titleOfTodo, date, time,priority,reminder)
+        if (reminder){
+            val alramSet = SetAlaram(requireContext())
+              alramSet.setAlaramForRemiderToDO(titleOfTodo,date,time)
+             }
+
+
+
+        return ToDoModal( titleOfTodo, date, time, priority, reminder)
+
+
     }
-
-
 
 
 

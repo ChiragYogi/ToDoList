@@ -1,17 +1,24 @@
 package com.example.todolistapp
 
+import android.content.ComponentName
+import android.content.Context
+import android.content.Intent
+import android.content.IntentFilter
+import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.navigation.findNavController
+import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.todolistapp.databinding.ActivityMainBinding
+import com.example.todolistapp.reciver.AlarmReceiver
+import com.example.todolistapp.utiles.utills
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var binding: ActivityMainBinding
-
+    private lateinit var binding: ActivityMainBinding
+    private lateinit var navController: NavController
+    /*private lateinit var reciver:  AlarmReceiver*/
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,13 +28,19 @@ class MainActivity : AppCompatActivity() {
 
 
         
-       val navhostFragment =
+       val navHostFragment =
            supportFragmentManager.findFragmentById(R.id.my_nav_host_fragment)    as NavHostFragment
-        val navController = navhostFragment.navController
+        navController = navHostFragment.navController
+
         setupActionBarWithNavController(navController)
-        
 
 
+       /* // dynamic reciver
+        reciver = AlarmReceiver()
+
+        IntentFilter(utills.ACTION_SET_EXACT).also {
+            registerReceiver(reciver,it)
+        }*/
 
 
 
@@ -36,10 +49,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        val navController = this.findNavController(R.id.my_nav_host_fragment)
-        return navController.navigateUp()
+        return navController.navigateUp() || super.onSupportNavigateUp()
 
     }
+
+   /* override fun onStop() {
+        super.onStop()
+        unregisterReceiver(reciver)
+    }*/
 
 
 }

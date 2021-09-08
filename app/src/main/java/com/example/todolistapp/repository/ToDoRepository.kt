@@ -7,9 +7,11 @@ import com.example.todolistapp.db.ToDoDataBase
 
 class ToDoRepository(private val todoDao:ToDoDao) {
 
-    //second way to do it
 
     val raedAllData: LiveData<List<ToDoModal>> = todoDao.displayAllTodo()
+    val sortByHighPriority: LiveData<List<ToDoModal>> = todoDao.sortByHighPriority()
+    val sortByMediumPriority: LiveData<List<ToDoModal>> = todoDao.sortByMediumPriority()
+    val sortByLowPriority: LiveData<List<ToDoModal>> = todoDao.sortByLowPriority()
 
     suspend fun addTodo(toDoModal: ToDoModal){
         todoDao.insertTodo(toDoModal)
@@ -27,8 +29,14 @@ class ToDoRepository(private val todoDao:ToDoDao) {
         todoDao.setUpReminder()
     }
 
+
     suspend fun deleteCompletedTodo() {
         todoDao.deleteUpdatedToDo()
+    }
+
+
+    fun searchDatabase(query: String): LiveData<List<ToDoModal>>{
+        return todoDao.searchDatabase(query)
     }
 
 

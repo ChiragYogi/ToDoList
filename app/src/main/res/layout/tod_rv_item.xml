@@ -10,8 +10,7 @@
         android:id="@+id/todoDoneCheckBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -19,18 +18,20 @@
         android:id="@+id/todoTextTitleRv"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:textColor="@color/title_text_color"
-        android:textSize="15sp"
-        android:textStyle="bold"
-       android:ellipsize="end"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:ellipsize="end"
+        android:singleLine="true"
         android:maxLines="1"
-        app:layout_constraintEnd_toStartOf="@+id/dateRvTodo"
+        android:textColor="@color/title_text_color"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBaseline_toBaselineOf="@+id/todoDoneCheckBox"
+        app:layout_constraintEnd_toStartOf="@+id/reminderImage"
         app:layout_constraintStart_toEndOf="@+id/todoDoneCheckBox"
-        app:layout_constraintTop_toTopOf="@+id/todoDoneCheckBox"
         tools:text="This is Todo Title" />
 
-    <TextView
+    <!-- <TextView
         android:id="@+id/priorityRvTv"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -40,19 +41,19 @@
         app:layout_constraintTop_toBottomOf="@+id/todoTextTitleRv"
         tools:text="High"
         android:textStyle="bold"
-        android:textColor="@color/title_text_color"/>
+        android:textColor="@color/title_text_color"/>-->
 
     <TextView
         android:id="@+id/dateRvTodo"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginTop="8dp"
         android:textColor="@color/title_text_color"
-        android:textStyle="bold"
         android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/timeRvTodo"
+        app:layout_constraintTop_toBottomOf="@+id/todoTextTitleRv"
         tools:text="22-7-2017" />
 
     <TextView
@@ -62,11 +63,56 @@
         android:layout_marginEnd="8dp"
         android:layout_marginTop="8dp"
         android:textColor="@color/title_text_color"
-        android:textStyle="bold"
         android:textSize="15sp"
+        android:textStyle="bold"
+
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/dateRvTodo"
+        app:layout_constraintTop_toBottomOf="@+id/todoTextTitleRv"
         tools:text="22:22 AM" />
+
+    <ImageView
+        android:id="@+id/reminderImage"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:background="#EA0606"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/todoTextTitleRv"
+        app:srcCompat="@drawable/ic_baseline_add_alert_24"
+        tools:visibility="visible" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/priorityLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@+id/todoTextTitleRv"
+        app:layout_constraintTop_toBottomOf="@+id/todoTextTitleRv">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/priorityImageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_priority_high_24" />
+
+            <TextView
+                android:id="@+id/priorityTxtLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:textAlignment="viewEnd"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                tools:text="High" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

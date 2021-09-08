@@ -18,4 +18,15 @@
     <string name="title_for_todo">Title</string>
     <string name="prefix_title">Title</string>
     <string name="update_todo">Update ToDo</string>
+    <string name="hide_complete">Hide Complete</string>
+    <string name="search">Search</string>
+    <string name="sort">Sort By</string>
+    <string name="sort_by_high_priority">Sort By High Priority</string>
+    <string name="sort_by_medium_priority">Sort By Medium Priority</string>
+    <string name="sort_by_low_priority">Sort By Low Priority</string>
+    <string name="delete_all">Delete All</string>
+    <string name="dialog_title">Delete All Todo?</string>
+    <string name="dialog_message">Do You Want To Delete All data?</string>
+    <string name="dialog_yes_button">Yes</string>
+    <string name="dialog_no_button">No</string>
 </resources>

@@ -18,7 +18,7 @@
             android:id="@+id/edtInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
+            android:imeOptions="actionDone"
             android:inputType="text" />
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
@@ -59,7 +59,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/priorityTxtLayout"
-        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
@@ -68,7 +68,7 @@
         <AutoCompleteTextView
             android:id="@+id/etPrioritySpinner"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:inputType="none"
             android:labelFor="@id/etPrioritySpinner" />
     </com.google.android.material.textfield.TextInputLayout>
