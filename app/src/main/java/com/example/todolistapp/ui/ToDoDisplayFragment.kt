@@ -105,72 +105,7 @@ class ToDoDisplayFragment : Fragment(R.layout.fragment_display_todo),
             }
 
 
-            override fun onChildDraw(
-                canvas: Canvas,
-                recyclerView: RecyclerView,
-                viewHolder: RecyclerView.ViewHolder,
-                dX: Float,
-                dY: Float,
-                actionState: Int,
-                isCurrentlyActive: Boolean
-            ) {
-                if (actionState == ItemTouchHelper.ACTION_STATE_SWIPE) {
-                    val itemView = viewHolder.itemView
 
-                    val paint = Paint()
-                    val icon: Bitmap
-
-                    if (dX > 0) {
-
-                        icon = BitmapFactory.decodeResource(resources, R.mipmap.ic_delete)
-
-                        paint.color = Color.parseColor("#388E3C")
-
-                        canvas.drawRect(
-                            itemView.left.toFloat(), itemView.top.toFloat(),
-                            itemView.left.toFloat() + dX, itemView.bottom.toFloat(), paint
-                        )
-
-                        canvas.drawBitmap(
-                            icon,
-                            itemView.left.toFloat(),
-                            itemView.top.toFloat() + (itemView.bottom.toFloat() - itemView.top.toFloat() - icon.height.toFloat()) / 2,
-                            paint
-                        )
-
-
-                    } else {
-                        icon = BitmapFactory.decodeResource(resources, R.mipmap.ic_delete)
-
-                        paint.color = Color.parseColor("#D32F2F")
-
-                        canvas.drawRect(
-                            itemView.right.toFloat() + dX, itemView.top.toFloat(),
-                            itemView.right.toFloat(), itemView.bottom.toFloat(), paint
-                        )
-
-                        canvas.drawBitmap(
-                            icon,
-                            itemView.right.toFloat() - icon.width,
-                            itemView.top.toFloat() + (itemView.bottom.toFloat() - itemView.top.toFloat() - icon.height.toFloat()) / 2,
-                            paint
-                        )
-                    }
-                    viewHolder.itemView.translationX = dX
-
-
-                } else {
-                    super.onChildDraw(
-                        canvas,
-                        recyclerView,
-                        viewHolder,
-                        dX,
-                        dY,
-                        actionState,
-                        isCurrentlyActive
-                    )
-                }
-            }
 
 
         }

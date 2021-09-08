@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
-    /*private lateinit var reciver:  AlarmReceiver*/
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,12 +35,6 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController)
 
 
-       /* // dynamic reciver
-        reciver = AlarmReceiver()
-
-        IntentFilter(utills.ACTION_SET_EXACT).also {
-            registerReceiver(reciver,it)
-        }*/
 
 
 
@@ -53,10 +47,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-   /* override fun onStop() {
-        super.onStop()
-        unregisterReceiver(reciver)
-    }*/
+
 
 
 }
