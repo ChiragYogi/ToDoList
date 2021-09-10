@@ -18,7 +18,9 @@ import com.example.todolistapp.ui.viemodel.ToDoViewModel
 import com.example.todolistapp.utiles.transformDatePicker
 import com.example.todolistapp.utiles.transformTimePicker
 import com.example.todolistapp.utiles.utills
-import com.example.todolistapp.utiles.utills.Companion.priority
+
+import com.example.todolistapp.utiles.utills.priority
+import com.example.todolistapp.utiles.utills.selectPriority
 import kotlinx.android.synthetic.main.add_todo_layout.*
 import java.util.*
 
@@ -66,7 +68,7 @@ private fun initView() {
 
     val priorityAdepter = ArrayAdapter(
         requireContext(),
-        R.layout.item_auto_complete_dropdown, utills.priority
+        R.layout.item_auto_complete_dropdown, priority
     )
 
     binding.updateToDoLayout.apply {
@@ -82,7 +84,7 @@ private fun initView() {
     private fun saveUpdatedTodo() {
         binding.updateToDoLayout.apply {
 
-            val (title, date, time) = updateTodo()
+            val (title, date, time, _, reminder) = updateTodo()
             when {
                 title.isEmpty() -> {
                     this.edtInputLayout.error = getString(R.string.error_msg_for_title_tinl)
@@ -93,11 +95,19 @@ private fun initView() {
                 time.isEmpty() -> {
                     this.timeEdt.error = getString(R.string.time_error)
                 }
+
                 else -> {
                     viewModel.updateTodo(updateTodo())
+
+                        if (reminder){
+                            val alarmClass = SetAlaram(requireContext())
+                            alarmClass.setAlaramForRemiderToDO(updateTodo())
+                        }
+
                     Toast.makeText(
                         requireContext(), "ToDo Updated Successfully", Toast.LENGTH_LONG
                     ).show()
+
                     //navigation back to previous Fragment
                     findNavController().navigateUp()
 
@@ -118,19 +128,13 @@ private fun initView() {
             val priorityTxt = it.etPrioritySpinner.text.toString()
 
 
-            val priority: Priority?
-            if (priorityTxt == args.currentTodo?.priority?.name){
-                priority = args.currentTodo!!.priority
+            val priority: Priority = if (priorityTxt == args.currentTodo?.priority?.name){
+                args.currentTodo!!.priority
 
             }else{
-                priority = utills.selectPriority(priorityTxt)
+                selectPriority(priorityTxt)
             }
             val id = args.currentTodo!!.id
-
-            if (reminder){
-                val alramSet = SetAlaram(requireContext())
-                alramSet.setAlaramForRemiderToDO(titleOfTodo,date,time)
-            }
 
 
 

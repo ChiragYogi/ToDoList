@@ -86,9 +86,9 @@ class ToDoAdapter(private val listener: OnItemClickListener):
     @RequiresApi(Build.VERSION_CODES.M)
     private fun bacgroundColor( cardView: CardView,priority: Priority) {
         when(priority){
-            Priority.HIGh ->{cardView.setCardBackgroundColor(cardView.context.getColor(R.color.red))}
-            Priority.MEDIUM ->{cardView.setCardBackgroundColor(cardView.context.getColor(R.color.yellow))}
-            Priority.LOW ->{cardView.setCardBackgroundColor(cardView.context.getColor(R.color.green))}
+            Priority.High ->{cardView.setCardBackgroundColor(cardView.context.getColor(R.color.red))}
+            Priority.Medium ->{cardView.setCardBackgroundColor(cardView.context.getColor(R.color.yellow))}
+            Priority.Low ->{cardView.setCardBackgroundColor(cardView.context.getColor(R.color.green))}
         }
 
     }

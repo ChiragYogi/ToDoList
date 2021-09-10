@@ -25,13 +25,13 @@ abstract class ToDoDataBase: RoomDatabase() {
                     todoDao?.deleteAll()
                     //adding todo
                     val todo = ToDoModal("Call Chirag","02/09/2021", "02:03 PM"
-                        ,priority = Priority.LOW, addReminderForToDo = false, todoCompleted = true)
+                        ,priority = Priority.Low, addReminderForToDo = false, todoCompleted = true)
                     val todo2 = ToDoModal("Pay Electricity Bill","02/09/2021","02:03 PM",
-                        priority = Priority.LOW , addReminderForToDo = false, todoCompleted = false)
+                        priority = Priority.Low , addReminderForToDo = false, todoCompleted = false)
                     val todo3 = ToDoModal("Clean kitchen","02/09/2021", "02:03 PM",
-                        priority = Priority.MEDIUM, addReminderForToDo = false, todoCompleted = true)
+                        priority = Priority.Medium, addReminderForToDo = false, todoCompleted = true)
                     val todo4 = ToDoModal("Drink 3lt water","02/09/2021", "02:03 PM",
-                        priority = Priority.HIGh , addReminderForToDo = false, todoCompleted = false)
+                        priority = Priority.High , addReminderForToDo = false, todoCompleted = false)
                     todoDao?.insertTodo(todo)
                     todoDao?.insertTodo(todo2)
                     todoDao?.insertTodo(todo3)

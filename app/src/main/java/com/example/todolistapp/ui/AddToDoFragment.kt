@@ -1,28 +1,21 @@
 package com.example.todolistapp.ui
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.fragment.app.viewModels
-
 import androidx.navigation.fragment.findNavController
 import com.example.todolistapp.R
 import com.example.todolistapp.alaram.SetAlaram
-
 import com.example.todolistapp.data.ToDoModal
 import com.example.todolistapp.databinding.FragmentAddTodoBinding
-import com.example.todolistapp.reciver.AlarmReceiver
 import com.example.todolistapp.ui.viemodel.ToDoViewModel
 import com.example.todolistapp.utiles.transformDatePicker
 import com.example.todolistapp.utiles.transformTimePicker
-
-import com.example.todolistapp.utiles.utills.Companion.priority
-import com.example.todolistapp.utiles.utills.Companion.selectPriority
-import java.time.LocalDate
-import java.time.LocalDateTime
+import com.example.todolistapp.utiles.utills.priority
+import com.example.todolistapp.utiles.utills.selectPriority
 
 import java.util.*
 
@@ -32,6 +25,7 @@ class AddToDoFragment : Fragment(R.layout.fragment_add_todo) {
     private var _binding: FragmentAddTodoBinding? = null
     private val binding get() = _binding!!
     private val viewModel: ToDoViewModel by viewModels()
+    private lateinit var alarmClass: SetAlaram
 
 
 
@@ -65,7 +59,7 @@ class AddToDoFragment : Fragment(R.layout.fragment_add_todo) {
 
     private fun insertToDoIntoDatabase() {
 
-        val (title, date, time) = addToDo()
+        val (title, date, time, _, reminder) = addToDo()
 
 
         with(binding.addToDoLayout) {
@@ -83,7 +77,11 @@ class AddToDoFragment : Fragment(R.layout.fragment_add_todo) {
 
                 else -> {
                     viewModel.addTodo(addToDo())
-                      Toast.makeText(
+                    if (reminder){
+                        val alarmClass = SetAlaram(requireContext())
+                        alarmClass.setAlaramForRemiderToDO(addToDo())
+                    }
+                     Toast.makeText(
                         requireContext(), "ToDo Added Successfully", Toast.LENGTH_LONG
                     ).show()
 
@@ -113,10 +111,6 @@ class AddToDoFragment : Fragment(R.layout.fragment_add_todo) {
         val priorityTxt = it.etPrioritySpinner.text.toString()
         val priority = selectPriority(priorityTxt)
 
-        if (reminder){
-            val alramSet = SetAlaram(requireContext())
-              alramSet.setAlaramForRemiderToDO(titleOfTodo,date,time)
-             }
 
 
 

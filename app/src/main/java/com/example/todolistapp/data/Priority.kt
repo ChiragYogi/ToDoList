@@ -1,7 +1,11 @@
 package com.example.todolistapp.data
 
-enum class Priority {
-    HIGh,
-    MEDIUM,
-    LOW
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
+enum class Priority: Parcelable {
+    High,
+    Medium,
+    Low
 }

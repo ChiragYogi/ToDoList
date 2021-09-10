@@ -3,6 +3,9 @@ package com.example.todolistapp.utiles
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.content.Context
+import android.content.Intent
+import android.content.SharedPreferences
+import android.os.Parcelable
 import android.widget.DatePicker
 
 import androidx.lifecycle.LifecycleOwner
@@ -11,6 +14,18 @@ import androidx.lifecycle.Observer
 import com.google.android.material.textfield.TextInputEditText
 import java.text.SimpleDateFormat
 import java.util.*
+
+
+
+fun <T : Enum<T>> SharedPreferences.Editor.putEnum(key: String, value: T?) : SharedPreferences.Editor =
+    this.putInt(key, value?.ordinal ?: -1)
+
+inline fun <reified T : Enum<T>> SharedPreferences.getEnum(key: String, default: T) =
+    this.getInt(key, -1).let { if (it >= 0) enumValues<T>()[it] else default }
+fun Intent.putParcelableExtra(key: String, value: Parcelable) {
+    putExtra(key, value)
+}
+
 
 
 fun TextInputEditText.transformDatePicker(

@@ -1,6 +1,5 @@
 package com.example.todolistapp.ui
 
-import android.graphics.*
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
@@ -55,6 +54,7 @@ class ToDoDisplayFragment : Fragment(R.layout.fragment_display_todo),
                    noToDOTxt.isVisible = false
                    mAdepter.submitList(todoList)
                    Log.d("ToDoLog","we got resultFrom Database $todoList")
+
                } else {
                    todoRv.isVisible = false
                    noToDOTxt.isVisible = true
