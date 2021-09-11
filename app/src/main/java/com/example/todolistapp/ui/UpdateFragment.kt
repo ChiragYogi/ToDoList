@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.Toast
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -17,11 +16,9 @@ import com.example.todolistapp.databinding.FragmentUpdateTodoBinding
 import com.example.todolistapp.ui.viemodel.ToDoViewModel
 import com.example.todolistapp.utiles.transformDatePicker
 import com.example.todolistapp.utiles.transformTimePicker
-import com.example.todolistapp.utiles.utills
 
-import com.example.todolistapp.utiles.utills.priority
-import com.example.todolistapp.utiles.utills.selectPriority
-import kotlinx.android.synthetic.main.add_todo_layout.*
+import com.example.todolistapp.utiles.Utiles.priority
+import com.example.todolistapp.utiles.Utiles.selectPriority
 import java.util.*
 
 
@@ -100,8 +97,9 @@ private fun initView() {
                     viewModel.updateTodo(updateTodo())
 
                         if (reminder){
-                            val alarmClass = SetAlaram(requireContext())
-                            alarmClass.setAlaramForRemiderToDO(updateTodo())
+                            if (reminder){
+                                SetAlaram.setAlarmForRemniderToDO(requireContext(),updateTodo())
+                            }
                         }
 
                     Toast.makeText(

@@ -14,8 +14,8 @@ import com.example.todolistapp.databinding.FragmentAddTodoBinding
 import com.example.todolistapp.ui.viemodel.ToDoViewModel
 import com.example.todolistapp.utiles.transformDatePicker
 import com.example.todolistapp.utiles.transformTimePicker
-import com.example.todolistapp.utiles.utills.priority
-import com.example.todolistapp.utiles.utills.selectPriority
+import com.example.todolistapp.utiles.Utiles.priority
+import com.example.todolistapp.utiles.Utiles.selectPriority
 
 import java.util.*
 
@@ -25,9 +25,6 @@ class AddToDoFragment : Fragment(R.layout.fragment_add_todo) {
     private var _binding: FragmentAddTodoBinding? = null
     private val binding get() = _binding!!
     private val viewModel: ToDoViewModel by viewModels()
-    private lateinit var alarmClass: SetAlaram
-
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -78,8 +75,7 @@ class AddToDoFragment : Fragment(R.layout.fragment_add_todo) {
                 else -> {
                     viewModel.addTodo(addToDo())
                     if (reminder){
-                        val alarmClass = SetAlaram(requireContext())
-                        alarmClass.setAlaramForRemiderToDO(addToDo())
+                      SetAlaram.setAlarmForRemniderToDO(requireContext(),addToDo())
                     }
                      Toast.makeText(
                         requireContext(), "ToDo Added Successfully", Toast.LENGTH_LONG

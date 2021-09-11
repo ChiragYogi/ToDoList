@@ -31,4 +31,6 @@
     <string name="dialog_message">Do You Want To Delete All data?</string>
     <string name="dialog_yes_button">Yes</string>
     <string name="dialog_no_button">No</string>
+    <string name="all_completed_todo">All Completed ToDo </string>
+    <string name="completed_todo">Completed ToDo</string>
 </resources>

@@ -8,8 +8,8 @@
     <fragment
         android:id="@+id/toDoDisplayFragment"
         android:name="com.example.todolistapp.ui.ToDoDisplayFragment"
-        android:label="ToDo APP"
-        tools:layout="@layout/fragment_display_todo" >
+        android:label="TODO APP"
+        tools:layout="@layout/fragment_display_todo">
         <action
             android:id="@+id/action_toDoDisplayFragment_to_itemToDoFragment2"
             app:destination="@id/addToDoFragment" />
@@ -41,4 +41,9 @@
         android:name="com.example.todolistapp.ui.DeleteDialog"
         android:label="DeleteDialog" />
     <action android:id="@+id/action_global_deleteDialog2" app:destination="@id/deleteDialog" />
+    <fragment
+        android:id="@+id/completedToDoFragment"
+        android:name="com.example.todolistapp.ui.CompletedToDoFragment"
+        android:label="@string/completed_todo"
+        tools:layout="@layout/fragment_complted_to_do" />
 </navigation>

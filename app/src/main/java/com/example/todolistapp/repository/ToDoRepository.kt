@@ -12,8 +12,9 @@ class ToDoRepository(private val todoDao:ToDoDao) {
     val sortByHighPriority: LiveData<List<ToDoModal>> = todoDao.sortByHighPriority()
     val sortByMediumPriority: LiveData<List<ToDoModal>> = todoDao.sortByMediumPriority()
     val sortByLowPriority: LiveData<List<ToDoModal>> = todoDao.sortByLowPriority()
+    val readCompletedTodo: LiveData<List<ToDoModal>> = todoDao.getUpdatedTodo()
 
-    suspend fun addTodo(toDoModal: ToDoModal){
+   suspend fun addTodo(toDoModal: ToDoModal){
         todoDao.insertTodo(toDoModal)
     }
 
@@ -26,12 +27,9 @@ class ToDoRepository(private val todoDao:ToDoDao) {
     }
 
 
-
-
-    suspend fun deleteCompletedTodo() {
+    suspend fun deleteCompletedTodo(){
         todoDao.deleteUpdatedToDo()
     }
-
 
     fun searchDatabase(query: String): LiveData<List<ToDoModal>>{
         return todoDao.searchDatabase(query)

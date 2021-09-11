@@ -30,6 +30,12 @@
 
         </group>
 
+    <item
+        android:id="@+id/completedToDoFragment"
+        android:title="@string/completed_todo"
+        app:showAsAction="never"/>
+
+
 
 
 

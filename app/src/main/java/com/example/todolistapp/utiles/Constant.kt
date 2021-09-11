@@ -1,40 +1,61 @@
 package com.example.todolistapp.utiles
 
+
+import android.os.Build
+import androidx.annotation.RequiresApi
+import androidx.cardview.widget.CardView
+import com.example.todolistapp.R
 import com.example.todolistapp.data.Priority
-import com.example.todolistapp.data.ToDoModal
-
-object  utills {
 
 
-        val priority = listOf("High","Medium","Low")
-
-        const val ACTION_SET_EXACT = "com.example.todolistapp.reciver.AlaramReceiver"
-        const val BOOT_COMPLETED = "android.intent.action.BOOT_COMPLETED"
-
-        const val MY_CHANNEL_ID = "To Do App Notification Channel Id"
-        const val MY_CHANNEL_NAME = "ToDo App Notification"
+object  Utiles {
 
 
-        fun selectPriority(priority: String): Priority {
-            return when(priority){
+    val priority = listOf("High", "Medium", "Low")
 
-                "High" -> {
-                    Priority.High
-                }
-                "Medium" -> {
-                    Priority.Medium
-                }
-                "LOW" -> {
-                    Priority.Low
-                }
+    const val ACTION_SET_EXACT = "com.example.todolistapp.reciver.AlaramReceiver"
 
-                else -> Priority.Low
+
+    const val MY_CHANNEL_ID = "To Do App Notification Channel Id"
+    const val MY_CHANNEL_NAME = "ToDo App Notification"
+
+
+    fun selectPriority(priority: String): Priority {
+        return when (priority) {
+
+            "High" -> {
+                Priority.High
+            }
+            "Medium" -> {
+                Priority.Medium
+            }
+            "LOW" -> {
+                Priority.Low
             }
 
+            else -> Priority.Low
+        }
+
+    }
+
+
+    @RequiresApi(Build.VERSION_CODES.M)
+    fun bacgroundColor(cardView: CardView, priority: Priority) {
+        when (priority) {
+            Priority.High -> {
+                cardView.setCardBackgroundColor(cardView.context.getColor(R.color.red))
+            }
+            Priority.Medium -> {
+                cardView.setCardBackgroundColor(cardView.context.getColor(R.color.yellow))
+            }
+            Priority.Low -> {
+                cardView.setCardBackgroundColor(cardView.context.getColor(R.color.green))
+            }
         }
 
 
-
-
     }
+}
+
+
 

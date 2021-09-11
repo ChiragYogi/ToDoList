@@ -21,6 +21,7 @@ class ToDoViewModel(application: Application) :AndroidViewModel(application) {
     val sortByHighPriority: LiveData<List<ToDoModal>> = repository.sortByHighPriority
     val sortByMediumPriority: LiveData<List<ToDoModal>> = repository.sortByMediumPriority
     val sortByLowPriority: LiveData<List<ToDoModal>> = repository.sortByLowPriority
+    val updatedToDo: LiveData<List<ToDoModal>> = repository.readCompletedTodo
 
 
 

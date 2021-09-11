@@ -6,28 +6,25 @@ import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.util.Log
-import com.example.todolistapp.data.Priority
 import com.example.todolistapp.data.ToDoModal
-import com.example.todolistapp.db.ToDoDao
-import com.example.todolistapp.db.ToDoDataBase
 import com.example.todolistapp.reciver.AlarmReceiver
 import com.example.todolistapp.utiles.putParcelableExtra
-import com.example.todolistapp.utiles.utills.ACTION_SET_EXACT
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
+import com.example.todolistapp.utiles.Utiles.ACTION_SET_EXACT
 import java.text.SimpleDateFormat
 
 
 
 
-class SetAlaram(private val context: Context) {
+object SetAlaram {
 
 
 
-     private val alramManager: AlarmManager? =
-        context.getSystemService(Context.ALARM_SERVICE) as AlarmManager?
 
-    fun setAlaramForRemiderToDO(toDoModal: ToDoModal) {
+  fun setAlarmForRemniderToDO(context: Context,toDoModal: ToDoModal) {
+
+
+        val  alramManager: AlarmManager? =
+            context.getSystemService(Context.ALARM_SERVICE) as AlarmManager?
 
         val intent = Intent(context,AlarmReceiver::class.java)
 
@@ -40,7 +37,7 @@ class SetAlaram(private val context: Context) {
                 putExtra("title",toDoModal.title)
                 putExtra("date",toDoModal.date)
                 putExtra("time",toDoModal.time)
-                putParcelableExtra("priority",toDoModal.priority!!)
+                putParcelableExtra("priority",toDoModal.priority)
                 putExtra("id",toDoModal.id)
                 Log.d("ToDoLog","$toDoModal.id" )
             },

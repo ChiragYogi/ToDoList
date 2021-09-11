@@ -17,17 +17,15 @@ import java.util.*
 
 
 
-fun <T : Enum<T>> SharedPreferences.Editor.putEnum(key: String, value: T?) : SharedPreferences.Editor =
-    this.putInt(key, value?.ordinal ?: -1)
 
-inline fun <reified T : Enum<T>> SharedPreferences.getEnum(key: String, default: T) =
-    this.getInt(key, -1).let { if (it >= 0) enumValues<T>()[it] else default }
+// to pass priority for notification message
 fun Intent.putParcelableExtra(key: String, value: Parcelable) {
     putExtra(key, value)
 }
 
 
 
+//For Date Picker
 fun TextInputEditText.transformDatePicker(
     context: Context,
     format: String,
@@ -61,6 +59,8 @@ fun TextInputEditText.transformDatePicker(
     }
 }
 
+
+//For Time Picker
 fun TextInputEditText.transformTimePicker(
     context: Context,
     format: String
@@ -93,11 +93,13 @@ fun TextInputEditText.transformTimePicker(
 fun <T> LiveData<T>.observeOnce(lifecycleOwner: LifecycleOwner,  observer: Observer<T>){
     observe(lifecycleOwner, object : Observer<T>{
         override fun onChanged(t: T) {
-        observer.onChanged(t)
-        removeObserver(this)
+            observer.onChanged(t)
+            removeObserver(this)
         }
 
     })
 
 }
+
+
 

@@ -12,8 +12,8 @@ import androidx.core.app.NotificationCompat
 import com.example.todolistapp.MainActivity
 import com.example.todolistapp.R
 import com.example.todolistapp.data.Priority
-import com.example.todolistapp.utiles.utills.MY_CHANNEL_ID
-import com.example.todolistapp.utiles.utills.MY_CHANNEL_NAME
+import com.example.todolistapp.utiles.Utiles.MY_CHANNEL_ID
+import com.example.todolistapp.utiles.Utiles.MY_CHANNEL_NAME
 
 import kotlin.random.Random
 

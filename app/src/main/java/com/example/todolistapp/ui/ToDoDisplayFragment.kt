@@ -9,7 +9,9 @@ import android.view.View
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.onNavDestinationSelected
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -73,14 +75,19 @@ class ToDoDisplayFragment : Fragment(R.layout.fragment_display_todo),
         setHasOptionsMenu(true)
     }
 
+    //move to UpdateTodo Fragment
     override fun onItemClick(toDoModal: ToDoModal) {
         val action = ToDoDisplayFragmentDirections
             .actionToDoDisplayFragmentToUpdateFragment(currentTodo = toDoModal)
         findNavController().navigate(action)
     }
 
+    // Updating clicked Todo
     override fun onCheckBoxClickListener(toDoModal: ToDoModal, isChecked: Boolean) {
         viewModel.onToDoChecked(toDoModal,isChecked)
+        Snackbar.make(requireView(),
+            "ToDo Completed SuccessFully",
+            Snackbar.LENGTH_LONG).show()
     }
 
     private fun swipeToDelete(recyclerView: RecyclerView) {
@@ -104,10 +111,6 @@ class ToDoDisplayFragment : Fragment(R.layout.fragment_display_todo),
                 restoreDefault(viewHolder.itemView, deleteToDo)
             }
 
-
-
-
-
         }
 
 
@@ -116,6 +119,8 @@ class ToDoDisplayFragment : Fragment(R.layout.fragment_display_todo),
 
     }
 
+
+    // for restoring Todo from SanckBar
     private fun restoreDefault(view: View, deleteItem: ToDoModal){
             val snakeBar =
                 Snackbar.make(view,"ToDo is Deleted Successfully",Snackbar.LENGTH_LONG)
@@ -185,6 +190,8 @@ class ToDoDisplayFragment : Fragment(R.layout.fragment_display_todo),
                 mAdepter.submitList(it)
             })}
         }
+
+        item.onNavDestinationSelected(findNavController()) || super.onOptionsItemSelected(item)
 
 
 
