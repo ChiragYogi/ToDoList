@@ -5,7 +5,7 @@ A Simple Todo app with reminder that diplay notification on time and date stored
 
 Navigation component, Live Data, View Binding, 
 
-<image src=https://user-images.githubusercontent.com/36261180/133077286-a3006a75-f82c-4f2a-b70a-c303f83dc992.jpg height= 500 width= 500>
+<image src=https://user-images.githubusercontent.com/36261180/133077286-a3006a75-f82c-4f2a-b70a-c303f83dc992.jpg height= "50%" width= "50%">
 <image src=https://user-images.githubusercontent.com/36261180/133077470-e2765294-6b84-40d6-a593-a917defe779c.jpg height= 500 width= 500>
 <image src=https://user-images.githubusercontent.com/36261180/133077534-fc59335f-28e0-40a7-80e7-045ade162620.jpg height= 500 width= 500>
 <image src=https://user-images.githubusercontent.com/36261180/133077703-30e7dc12-5537-4f86-a193-a9f21568a3ce.jpg height= 500 width= 500>
