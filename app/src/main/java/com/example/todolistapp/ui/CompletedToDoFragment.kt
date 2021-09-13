@@ -2,11 +2,15 @@ package com.example.todolistapp.ui
 
 import android.graphics.*
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import androidx.fragment.app.Fragment
 
 import android.view.View
 
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -44,13 +48,15 @@ class CompletedToDoFragment : Fragment(R.layout.fragment_complted_to_do) {
         })
 
         deletedToDoSwipe()
+        setHasOptionsMenu(true)
 
     }
 
 
 
 
-    fun deletedToDoSwipe() {
+    //deleting updated todo on swipe
+    private fun deletedToDoSwipe() {
         val simpleItemTouchCallback = object : ItemTouchHelper.SimpleCallback(
             0,
             ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT
@@ -72,6 +78,7 @@ class CompletedToDoFragment : Fragment(R.layout.fragment_complted_to_do) {
                 }
             }
 
+            //draw color on surface with delete png
             override fun onChildDraw(
                 canvas: Canvas,
                 recyclerView: RecyclerView,
@@ -144,5 +151,20 @@ class CompletedToDoFragment : Fragment(R.layout.fragment_complted_to_do) {
 
         val itemTouchHelper = ItemTouchHelper(simpleItemTouchCallback)
         itemTouchHelper.attachToRecyclerView(updateLayoutRv)
+    }
+
+    // inflating menu
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.complet_todo_menu,menu)
+    }
+
+
+    // Alert Dialog for deleting all todo
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.delete_all -> findNavController().navigate(R.id.action_global_deleteDialog2)
+        }
+
+        return super.onOptionsItemSelected(item)
     }
 }

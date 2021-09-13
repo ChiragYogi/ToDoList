@@ -18,7 +18,7 @@
         <entry key="..\:/Users/chirag/AndroidStudioProjects/ToDoListApp/app/src/main/res/layout/fragment_add_todo.xml" value="0.1" />
         <entry key="..\:/Users/chirag/AndroidStudioProjects/ToDoListApp/app/src/main/res/layout/fragment_addtodo.xml" value="0.11730072463768115" />
         <entry key="..\:/Users/chirag/AndroidStudioProjects/ToDoListApp/app/src/main/res/layout/fragment_complted_to_do.xml" value="0.22" />
-        <entry key="..\:/Users/chirag/AndroidStudioProjects/ToDoListApp/app/src/main/res/layout/fragment_display_todo.xml" value="0.12" />
+        <entry key="..\:/Users/chirag/AndroidStudioProjects/ToDoListApp/app/src/main/res/layout/fragment_display_todo.xml" value="0.2" />
         <entry key="..\:/Users/chirag/AndroidStudioProjects/ToDoListApp/app/src/main/res/layout/fragment_item_to_do.xml" value="0.16" />
         <entry key="..\:/Users/chirag/AndroidStudioProjects/ToDoListApp/app/src/main/res/layout/fragment_to_do_displat.xml" value="0.14" />
         <entry key="..\:/Users/chirag/AndroidStudioProjects/ToDoListApp/app/src/main/res/layout/fragment_update.xml" value="0.22" />
@@ -27,6 +27,7 @@
         <entry key="..\:/Users/chirag/AndroidStudioProjects/ToDoListApp/app/src/main/res/layout/tod_rv_item.xml" value="0.18" />
         <entry key="..\:/Users/chirag/AndroidStudioProjects/ToDoListApp/app/src/main/res/menu-v26/action_bar_menu.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/chirag/AndroidStudioProjects/ToDoListApp/app/src/main/res/menu/action_bar_menu.xml" value="0.2" />
+        <entry key="..\:/Users/chirag/AndroidStudioProjects/ToDoListApp/app/src/main/res/menu/complet_todo_menu.xml" value="0.2" />
       </map>
     </option>
   </component>

@@ -9,6 +9,8 @@ import android.media.RingtoneManager
 import android.os.Build
 import android.util.Log
 import androidx.core.app.NotificationCompat
+import androidx.navigation.NavController
+import androidx.navigation.NavDeepLinkBuilder
 import com.example.todolistapp.MainActivity
 import com.example.todolistapp.R
 import com.example.todolistapp.data.Priority
@@ -25,13 +27,11 @@ class Notification {
         context: Context, title: String?,
         priority: Priority?, todoDateAndTime: String) {
 
-        val intent = Intent(context, MainActivity::class.java)
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-
-
-        val pendingIntent = PendingIntent.getActivity(
-            context, 0, intent, PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_ONE_SHOT
-        )
+         // using deeplink to navigate to completed todo fragment
+         val pendingIntent = NavDeepLinkBuilder(context)
+             .setGraph(R.navigation.nav_graph)
+             .setDestination(R.id.completedToDoFragment)
+             .createPendingIntent()
 
 
         //Setting Sound for Notification
@@ -53,7 +53,7 @@ class Notification {
         val notificationManger =
             context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
-        //since  android oreo notification chanel is needed
+        //since  android oreo notification channel is needed
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val channel = NotificationChannel(
@@ -66,6 +66,7 @@ class Notification {
             notificationManger.createNotificationChannel(channel)
         }
 
+         // generating random notification id
         val notificationId = Random.nextInt()
         Log.d("ToDoLog","$notificationId")
         notificationManger.notify(notificationId, notificationBuilder.build())

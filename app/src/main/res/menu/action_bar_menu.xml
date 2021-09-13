@@ -8,11 +8,7 @@
             android:title="@string/search"
             app:actionViewClass="androidx.appcompat.widget.SearchView"
             app:showAsAction="collapseActionView|ifRoom"/>
-    <item
-        android:id="@+id/delete_all"
-        android:icon="@drawable/ic_baseline_delete_forever_24"
-        android:title="@string/delete_all"
-        app:showAsAction="ifRoom"/>
+ 
 
         <group android:checkableBehavior="single" >
             <item

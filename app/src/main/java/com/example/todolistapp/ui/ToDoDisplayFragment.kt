@@ -90,6 +90,8 @@ class ToDoDisplayFragment : Fragment(R.layout.fragment_display_todo),
             Snackbar.LENGTH_LONG).show()
     }
 
+
+    //Delete Todo on Swipe
     private fun swipeToDelete(recyclerView: RecyclerView) {
 
         val swipeToDeleteCallBack = object : ItemTouchHelper.SimpleCallback(
@@ -129,6 +131,8 @@ class ToDoDisplayFragment : Fragment(R.layout.fragment_display_todo),
                 }
                 snakeBar.show()
     }
+
+    // Full text Search in room with name
     private fun searchDataBase(searchTxt: String){
 
         viewModel.searchDatabase(searchTxt).observeOnce(viewLifecycleOwner,{ searchList ->
@@ -138,6 +142,7 @@ class ToDoDisplayFragment : Fragment(R.layout.fragment_display_todo),
 
 
 
+    //Action Menu Toolbar
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
        inflater.inflate(R.menu.action_bar_menu,menu)
 
@@ -170,10 +175,11 @@ class ToDoDisplayFragment : Fragment(R.layout.fragment_display_todo),
 
 
 
+
+    // event when menu item is selected
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
         when(item.itemId){
-           R.id.delete_all -> findNavController().navigate(R.id.action_global_deleteDialog2)
             R.id.sort_by_high_priority -> {
                 viewModel.sortByHighPriority.observe(viewLifecycleOwner,{
                         mAdepter.submitList(it)

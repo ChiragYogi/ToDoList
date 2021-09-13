@@ -25,8 +25,8 @@
     <string name="sort_by_medium_priority">Sort By Medium Priority</string>
     <string name="sort_by_low_priority">Sort By Low Priority</string>
     <string name="delete_all">Delete All</string>
-    <string name="dialog_title">Delete All Todo?</string>
-    <string name="dialog_message">Do You Want To Delete All data?</string>
+    <string name="dialog_title">Delete All Completed Todo ?</string>
+    <string name="dialog_message">This action will delete all Completed ToDo.</string>
     <string name="dialog_yes_button">Yes</string>
     <string name="dialog_no_button">No</string>
     <string name="all_completed_todo">All Completed ToDo </string>

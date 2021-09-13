@@ -38,12 +38,6 @@ class ToDoRepository(private val todoDao:ToDoDao) {
 
 
 
-    //one way to do it
-   /* suspend fun getAllToDo() = database.todoDao().displayAllTodo()
-
-    suspend fun insertTodo(toDoModal: ToDoModal) = database.todoDao().insertTodo(toDoModal)
-
-    suspend fun updateTodo(toDoModal: ToDoModal) = database.todoDao().updateTodo(toDoModal)*/
 
 
 }

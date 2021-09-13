@@ -13,13 +13,16 @@ object  Utiles {
 
     val priority = listOf("High", "Medium", "Low")
 
+    //intent Action for pending intent for alarm manger
     const val ACTION_SET_EXACT = "com.example.todolistapp.reciver.AlaramReceiver"
 
 
+    //channel name for notification and Id
     const val MY_CHANNEL_ID = "To Do App Notification Channel Id"
     const val MY_CHANNEL_NAME = "ToDo App Notification"
 
 
+    // Passing priority to string for room db
     fun selectPriority(priority: String): Priority {
         return when (priority) {
 
@@ -39,6 +42,7 @@ object  Utiles {
     }
 
 
+    //setting backgroundColor on CardView
     @RequiresApi(Build.VERSION_CODES.M)
     fun bacgroundColor(cardView: CardView, priority: Priority) {
         when (priority) {

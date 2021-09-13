@@ -11,7 +11,7 @@ import com.example.todolistapp.data.ToDoModal
 import com.example.todolistapp.databinding.CompletedTodoRvItemBinding
 import com.example.todolistapp.utiles.Utiles
 
-class UpdatedTodoAdepter() :
+class UpdatedTodoAdepter :
     ListAdapter<ToDoModal, UpdatedTodoAdepter.MyViewHolder>(DiffUtillCallback()) {
 
 
